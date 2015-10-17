@@ -11,11 +11,11 @@ module TChatter
           config_file = "#{file_source}/#{CONFIG_FILE}"
           break if File.exists? config_file
       }
-      @@config_data = load_config(config_file) if config_file && File.exists?(config_file)
+      @@config_data = load_config(config_file)
     end
 
     def self.load_config(file_path)
-      ::YAML.load_file(file_path)
+      ::YAML.load_file(file_path) || Hash.new(nil)
     end
 
     def configuration

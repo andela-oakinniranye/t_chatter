@@ -12,7 +12,7 @@ module TChatter
     end
 
     def set_url
-      @url = @config[:host]
+      @url = @config[:host] || 'http://localhost'
     end
 
 

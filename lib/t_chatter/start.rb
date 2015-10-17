@@ -13,8 +13,8 @@ module TChatter
 
       chat = Chat.new(user, config)
 
-      want_to_receive = config.configuration[:receive] || true
-      want_to_send = config.configuration[:send] || true
+      want_to_receive = config.configuration[:receive]
+      want_to_send = config.configuration[:send]
 
       threads = []
 
