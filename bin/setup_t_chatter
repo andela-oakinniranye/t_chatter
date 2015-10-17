@@ -55,7 +55,7 @@ real_config = Hash.new(nil)
 config.each{ |x, y|
   if [:send, :receive].include? x
     real_config[x] = true_cmd[y]
-    real_config[x] = true unless true_cmd.values.include? y
+    real_config[x] = true unless true_cmd.keys.include? y
   else
     real_config[x] = y if !y.blank?
   end
