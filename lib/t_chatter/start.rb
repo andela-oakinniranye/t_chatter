@@ -1,4 +1,4 @@
-module TCharter
+module TChatter
   class Start
 
     def self.chat

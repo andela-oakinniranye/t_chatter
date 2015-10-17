@@ -1,4 +1,4 @@
-module TCharter
+module TChatter
   class Chat
     attr_reader :connection, :messages, :response, :last_message_id, :user, :config
 

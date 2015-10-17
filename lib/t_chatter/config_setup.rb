@@ -1,4 +1,4 @@
-module TCharter
+module TChatter
   class ConfigSetup
     include Singleton
 

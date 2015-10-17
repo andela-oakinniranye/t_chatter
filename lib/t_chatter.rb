@@ -1,11 +1,11 @@
-require "t_charter/version"
+require "t_chatter/version"
 # gem 'faraday'
 require 'json'
 require 'faraday'
 require 'yaml'
 require 'singleton'
 
-module TCharter
+module TChatter
   # Your code goes here...
 end
 
@@ -17,4 +17,4 @@ end
 
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
-Dir[APP_ROOT.join('lib', 't_charter', '*.rb')].each { |f| require f }
+Dir[APP_ROOT.join('lib', 't_chatter', '*.rb')].each { |f| require f }

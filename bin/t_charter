@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "t_charter"
+require "t_chatter"
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -12,4 +12,4 @@ require "t_charter"
 
 # require "irb"
 # IRB.start
-TCharter::Start.chat
+TChatter::Start.chat

@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "t_chatter"
+
+
+puts <<-EOS
+  Thanks for installing TChatter.
+  A small Ruby application that allows you to chat with a your friends on a particular network
+
+  This is the last process which basically sets up your application for you.
+  Let us begin
+EOS
+
+config = Hash.new(nil)
+
+print "What is your name?(optional) : "
+config[:user] = gets.chomp.strip
+
+puts ""
+
+print "Would you like to just send message?(optional) : "
+config[:send] = gets.chomp.strip
+
+puts ""
+
+print "Would you like to receive messages?(optional) : "
+config[:receive] = gets.chomp.strip
+
+print "Enter your URL for the Server?(optional) : "
+config[:host] = gets.chomp.strip
+
+config.select!{ |x, y|
+  !y.blank?
+}
+
+config[:host] = "http://192.168.2.8:4567" unless config[:host]
+
+
+file_root = ENV["HOME"]
+file_name = TChatter::ConfigSetup::CONFIG_FILE
+file_location = "#{file_root}/#{file_name}"
+
+File.open(file_location, 'w') do |f|
+  ::YAML.dump config, f
+end
+
+puts <<-EOS
+  Congratulations you have completed the basic setup. The file can be found at: #{file_location}
+EOS
