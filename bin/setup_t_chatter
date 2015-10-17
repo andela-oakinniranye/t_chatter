@@ -3,14 +3,25 @@
 require "bundler/setup"
 require "t_chatter"
 
+file_root = ENV["HOME"]
+file_name = TChatter::ConfigSetup::CONFIG_FILE
+file_location = "#{file_root}/#{file_name}"
 
-puts <<-EOS
-  Thanks for installing TChatter.
-  A small Ruby application that allows you to chat with a your friends on a particular network
+unless File.exists? file_location
+  puts <<-EOS
+    Thanks for installing TChatter.
+    A small Ruby application that allows you to chat with a your friends on a particular network
 
-  This is the last process which basically sets up your application for you.
-  Let us begin
-EOS
+    This is the last process which basically sets up your application for you.
+    Let us begin
+  EOS
+else
+  print <<-EOS
+    You seem to have this application configured already at: #{file_location}
+    Do you want to overwrite your old configuration?(Y or N) :
+  EOS
+  exit if gets.chomp.downcase == 'n'
+end
 
 config = Hash.new(nil)
 
@@ -30,19 +41,29 @@ config[:receive] = gets.chomp.strip
 print "Enter your URL for the Server?(optional) : "
 config[:host] = gets.chomp.strip
 
-config.select!{ |x, y|
-  !y.blank?
+true_cmd = {
+  'true' => true,
+  'yes' => true,
+  'y' => true,
+  '' => true,
+  'false' => false,
+  'no' => false,
+  'n' => false
 }
 
-config[:host] = "http://192.168.2.8:4567" unless config[:host]
+real_config = Hash.new(nil)
+config.each{ |x, y|
+  if [:send, :receive].include? x
+    real_config[x] = true_cmd[y]
+  else
+    real_config[x] = y if !y.blank?
+  end
+}
 
-
-file_root = ENV["HOME"]
-file_name = TChatter::ConfigSetup::CONFIG_FILE
-file_location = "#{file_root}/#{file_name}"
+real_config[:host] = "http://192.168.2.8:4567" unless real_config[:host]
 
 File.open(file_location, 'w') do |f|
-  ::YAML.dump config, f
+  ::YAML.dump real_config, f
 end
 
 puts <<-EOS
