@@ -60,7 +60,7 @@ config.each{ |x, y|
   end
 }
 
-real_config[:host] = "http://tchatter.herokuapp.com" unless real_config[:host]
+real_config[:host] = TChatter::DEFAULT_URL unless real_config[:host]
 
 File.open(file_location, 'w') do |f|
   ::YAML.dump real_config, f

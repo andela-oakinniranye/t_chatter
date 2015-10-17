@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require "pry"
+require "bundler/setup"
+require "t_chatter"
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+def reload!
+  puts "Reloading..."
+  files = $LOADED_FEATURES.select { |feat| feat =~ /\/t_chatter\// }
+  files.each { |file| load file }
+  true
+end
+# reload!
+ARGV.clear
+# Pry.start
+
+# (If you use this, don't forget to add pry to your Gemfile!)
+Pry.start
+
+# require "irb"
+# IRB.start
+# TChatter::Start.chat
