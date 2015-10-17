@@ -11,7 +11,11 @@ module TChatter
           config_file = "#{file_source}/#{CONFIG_FILE}"
           break if File.exists? config_file
       }
-      @@config_data = load_config(config_file) || Hash.new(nil)
+       if File.exists? config_file
+         @@config_data = load_config(config_file)
+       else
+         @@config_data = Hash.new(nil)
+       end
     end
 
     def self.load_config(file_path)
