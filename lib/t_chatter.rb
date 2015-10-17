@@ -4,6 +4,7 @@ require 'json'
 require 'faraday'
 require 'yaml'
 require 'singleton'
+require 'uri'
 
 module TChatter
   DEFAULT_URL = "https://tchatter.herokuapp.com"
