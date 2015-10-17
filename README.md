@@ -88,7 +88,7 @@ This is not close to the best application I have and will build, however I seem 
 about this for now.
 
 Let's see where the future takes me.
-[To know how I feel about this you have to listen to this](www.youtube.com/watch?v=ZR0v0i63PQ4)
+[To know how I feel about this you have to listen to this](http://www.youtube.com/watch?v=ZR0v0i63PQ4)
 
 
 ## Contributing
