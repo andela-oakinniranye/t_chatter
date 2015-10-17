@@ -22,6 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "faraday"
   spec.add_dependency "json"
 
+  spec.post_install_message = "Thanks for trying out my interesting gem.\nTo complete the installation, run `setup_t_chatter` to create a .chatter.yml configuration file.\nThis allows you to use your own url and set defaults for your version of TChatter"
+
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
