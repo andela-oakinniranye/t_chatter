@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'pry'
 require "bundler/setup"
 require "t_chatter"
 
@@ -12,4 +13,6 @@ require "t_chatter"
 
 # require "irb"
 # IRB.start
-TChatter::Start.chat
+# TChatter::Start.chat
+chat = TChatter::Entry.new
+chat.start_chat

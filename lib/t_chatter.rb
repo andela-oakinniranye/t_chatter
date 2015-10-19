@@ -5,9 +5,11 @@ require 'faraday'
 require 'yaml'
 require 'singleton'
 require 'uri'
+require 'securerandom'
 
 module TChatter
   DEFAULT_URL = "https://tchatter.herokuapp.com"
+  UNIQUE_ID = SecureRandom.uuid.gsub('-', '')
   # Your code goes here...
 end
 

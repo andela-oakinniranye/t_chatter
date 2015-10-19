@@ -25,48 +25,64 @@ end
 
 config = Hash.new(nil)
 
+true_false_cmd = {
+  'true' => true,
+  'yes' => true,
+  'y' => true,
+  't' => true,
+  '' => true,
+  'false' => false,
+  'no' => false,
+  'n' => false,
+  'f' => false
+}
+
+tfc_short = true_false_cmd.keys.reject{ |k, v| k == '' }.join(', ')
+
 print "What is your name?(optional) : "
 config[:user] = gets.chomp.strip
 
 puts ""
 
-print "Would you like to just send message?(optional) : "
+print "Would you like to send messages?(optional) #enter (#{tfc_short}) : "
 config[:send] = gets.chomp.strip
 
 puts ""
 
-print "Would you like to receive messages?(optional) : "
+print "Would you like to receive messages?(optional) #enter (#{tfc_short}) : "
 config[:receive] = gets.chomp.strip
 
 print "Enter your URL for the Server?(optional) : "
 config[:host] = gets.chomp.strip
 
-true_cmd = {
-  'true' => true,
-  'yes' => true,
-  'y' => true,
-  '' => true,
-  'false' => false,
-  'no' => false,
-  'n' => false
-}
 
 real_config = Hash.new(nil)
 config.each{ |x, y|
   if [:send, :receive].include? x
-    real_config[x] = true_cmd[y]
-    real_config[x] = true unless true_cmd.keys.include? y
+    real_config[x] = true_false_cmd[y]
+    real_config[x] = true unless true_false_cmd.keys.include? y
   else
     real_config[x] = y if !y.blank?
   end
 }
 
 real_config[:host] = TChatter::DEFAULT_URL unless real_config[:host]
+real_config[:user_id] = TChatter::UNIQUE_ID
 
 File.open(file_location, 'w') do |f|
   ::YAML.dump real_config, f
 end
 
+applications_to_be_supported = %w[ Slack HipChat ].join(', ')
+
 puts <<-EOS
-  Congratulations you have completed the basic setup. The file can be found at: #{file_location}
+  Congratulations you have completed the basic setup. The file can be found at:
+  #{file_location}
+
+  To connect to TChatter
+  run `t_chatter` from your terminal and watch the messages stream in
+
+
+  Note: As part of the future plans, you would be able to connect TChatter to
+  your #{applications_to_be_supported} application so you never miss a chat
 EOS
