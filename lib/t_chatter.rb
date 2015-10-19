@@ -8,7 +8,7 @@ require 'uri'
 require 'securerandom'
 
 module TChatter
-  DEFAULT_URL = "https://tchatter.herokuapp.com"
+  DEFAULT_URL = "http://tchatter.herokuapp.com"
   UNIQUE_ID = SecureRandom.uuid.gsub('-', '')
   # Your code goes here...
 end
