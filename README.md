@@ -8,7 +8,7 @@ Install with:
 May not be useful in your application though, but in case you want to experiment with it
 
 ```
-  gem t_chatter
+  gem 't_chatter'
 ```
 
 ## Setup
