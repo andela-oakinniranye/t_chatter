@@ -31,8 +31,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "json", "~> 1.8"
 
   spec.post_install_message = <<-EOS
-  
-  Thanks for trying out my interesting gem.
+
+  Thanks for trying out my #{spec.homepage} interesting gem.
   To complete the installation, run `setup_t_chatter` to
   create a .chatter.yml configuration file.
   This allows you to use your own url and set defaults
