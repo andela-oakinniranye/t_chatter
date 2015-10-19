@@ -17,8 +17,7 @@ Gem::Specification.new do |spec|
   terminal.
   You can extend it further though to chat with your
   friends on Slack and other applications."
-  Visit <a href='#{spec.homepage}'>TChatter's Homepage</a>
-  to read more on the application.
+  Visit TChatter's homepage to read more on the application.
   EOS
 
   spec.license       = "MIT"
