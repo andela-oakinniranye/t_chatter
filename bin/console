@@ -10,8 +10,8 @@ def reload!
   puts "Reloading..."
   files = $LOADED_FEATURES.select { |feat| feat =~ /\/t_chatter\// }
   files.each { |file| load file }
-  true
   ARGV.clear
+  true
 end
 # reload!
 # Pry.start
