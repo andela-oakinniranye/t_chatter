@@ -22,7 +22,6 @@ Gem::Specification.new do |spec|
 
   spec.license       = "MIT"
   spec.files         = Dir['lib/**/*.rb']
-  # `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "bin"
   spec.executables   += ['t_chatter', 'setup_t_chatter']
   spec.require_paths = ["lib"]
