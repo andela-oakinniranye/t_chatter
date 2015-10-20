@@ -1,11 +1,12 @@
 require "t_chatter/version"
-# gem 'faraday'
+
 require 'json'
 require 'faraday'
 require 'yaml'
 require 'singleton'
 require 'uri'
 require 'securerandom'
+require 'pathname'
 
 module TChatter
   DEFAULT_URL = "http://tchatter.herokuapp.com"
@@ -19,8 +20,5 @@ Object.class_eval do
   end
 end
 
-
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 Dir[APP_ROOT.join('lib', 't_chatter', '*.rb')].each { |f| require f }
-CS = TChatter::ConfigSetup
-TC = TChatter::Chat
