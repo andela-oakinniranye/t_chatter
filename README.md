@@ -1,4 +1,5 @@
 # TChatter
+[![Gem Version](https://badge.fury.io/rb/t_chatter.svg)](https://badge.fury.io/rb/t_chatter)
 
 ## Installation
 Install with:
